@@ -4,7 +4,6 @@ import 'package:english_words/english_words.dart';
 void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
-  final wordPair = new WordPair.random();
 
   @override
   Widget build(BuildContext context) {
@@ -15,10 +14,22 @@ class MyApp extends StatelessWidget {
           title: new Text('Welcome'),
         ),
         body: new Center(
-            child: new Text(wordPair.asPascalCase)
+            child: new RandomWords()
         ),
       ),
     );
   }
 }
 
+class RandomWords extends StatefulWidget {
+  @override
+  createState() => new RandomWordsState();
+}
+
+class RandomWordsState extends State<RandomWords> {
+  @override
+  Widget build(BuildContext context) {
+    final wordPair = new WordPair.random();
+    return new Text(wordPair.asPascalCase);
+  }
+}
