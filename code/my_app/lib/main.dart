@@ -15,26 +15,18 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyAppBar extends StatelessWidget {
-  MyAppBar({this.title});
-  final Widget title;
+class MyScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 56.0,
-      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 10.0),
-      margin: const EdgeInsets.only(top: 30.0),
-      decoration: BoxDecoration(color: Colors.blue[500]),
-      child: Row(
-        children: <Widget>[
-          IconButton(
-            icon: Icon(Icons.menu),
-            tooltip: 'Navigation Menu',
-            onPressed: null,
-          ),
-          Expanded(
-            child: title,
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.menu),
+          tooltip: 'navigation menu',
+          onPressed: null,
+        ),
+        title: Text('title'),
+        actions: <Widget>[
           IconButton(
             icon: Icon(Icons.search),
             tooltip: 'search',
@@ -42,23 +34,13 @@ class MyAppBar extends StatelessWidget {
           )
         ],
       ),
-    );
-  }
-}
-
-class MyScaffold extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      child: Column(
-        children: <Widget>[
-          MyAppBar(title: Text('title', style: Theme.of(context).primaryTextTheme.title)),
-          Expanded(
-            child: Center(
-              child: Text('body'),
-            ),
-          )
-        ],
+      body: Center(
+        child: Text('body'),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        tooltip: 'add',
+        onPressed: ()=>'',
       ),
     );
   }
