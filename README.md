@@ -7,4 +7,3 @@
 ## Demos
 
 ![](./art/startup_name_generator.gif)
-
