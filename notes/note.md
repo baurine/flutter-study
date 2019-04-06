@@ -8,6 +8,16 @@
 
 安装，配置环境，略。
 
+下载 SDK 安装包，在 Mac 上解压即可，再配置 PATH 路径。
+
+检查是否配置安装齐全：`$ flutter doctor`
+
+升级 flutter: `$ flutter upgrade`
+
+创建 flutter 工程：`$ flutter create my_app`
+
+进入工程目录，启动 app: `$ flutter run`
+
 ### 编写第一个 Flutter 应用
 
 原理和 React / React Native 差不多，但由于 React 有 JSX 语法的支持，写起来比 Flutter 简洁很多。
@@ -53,6 +63,8 @@ Flutter 提供了许多开箱即用的 widgets，如果想用 Material 风格，
 
 #### 处理手势
 
+使用 GestureDector widget。
+
 略。简单了解。
 
 #### 根据用户输入改变 Widget
@@ -74,6 +86,8 @@ StatefulWidget, State
 #### 响应 widget 的生命周期事件
 
 initState / dispose ... 就这两个，这也太粗糙了吧...
+
+在 initState 中可以进行网络请求获取数据。
 
 #### Key
 
@@ -108,3 +122,7 @@ initState / dispose ... 就这两个，这也太粗糙了吧...
 简单看了一下，感觉 Flutter 是把简单事情复杂化了吧，什么都是 Widget ... 把简单的布局搞复杂了。感觉不会流行起来的。
 
 算了，剩下的不看了，等它有机会流行起来再看吧。
+
+Update: 2019/4/5
+
+再次复习 Flutter，还是觉得布局很容易嵌套得很深，每个 widget 的用法也不统一，要记的太多了，只能边用边看文档了。
