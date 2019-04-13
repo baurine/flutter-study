@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:dio/dio.dart';
 
 void main() => runApp(MyApp());
 
@@ -21,14 +22,6 @@ class MyScaffold extends StatefulWidget {
 }
 
 class MyScaffoldState extends State<MyScaffold> {
-  int _counter = 0;
-
-  void _incCnt() {
-    setState(() {
-      _counter ++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,14 +33,25 @@ class MyScaffoldState extends State<MyScaffold> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text('you clicked', style: TextStyle(fontSize: 24),),
-            Text('$_counter', style: TextStyle(fontSize: 24),)
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incCnt,
-        child: Icon(Icons.add),
-      ),
     );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    loadData();
+  }
+
+  void loadData() async {
+    try {
+      Response response = await Dio().get("http://www.mocky.io/v2/5cb1cdcf330000d81f5720ea");
+      print(response);
+    } catch (e) {
+      print(e);
+    }
   }
 }
