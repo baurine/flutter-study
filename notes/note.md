@@ -126,3 +126,43 @@ initState / dispose ... 就这两个，这也太粗糙了吧...
 Update: 2019/4/5
 
 再次复习 Flutter，还是觉得布局很容易嵌套得很深，每个 widget 的用法也不统一，要记的太多了，只能边用边看文档了。
+
+dart2 生成实例对象时不再需要 new 关键字。
+
+## Note 2
+
+通过一个示例练习：
+
+- 使用 dio 进行网络请求
+- 解析 json
+- 将 json 中的内容显示在 listview 中
+
+demo:
+
+![](../art/dio_json.gif)
+
+参考：
+
+- [dio 官方文档](https://github.com/flutterchina/dio/blob/master/README-ZH.md)
+- [Flutter dio 结合 json_serializable 请求数据并解析 Demo](https://www.jianshu.com/p/e010041f0ec0)
+- [Mocky](https://www.mocky.io/)
+- [json2dart - 为了便利使用 json_serializable 库](https://caijinglong.github.io/json2dart/index_ch.html)
+
+上面的 demo 就来自第二个参考。
+
+### 使用 dio 进行网络请求
+
+看官方文档即可。如果没有合适的 API 可以使用，可以使用 [Mocky](https://www.mocky.io/) 这个服务 mock 一个 API，很是方便。
+
+### 解析 JSON
+
+主要使用到 json_serializable 和 json2dart 这两个工具。手工解析 json 很麻烦，这两个工具可以帮我们生成解析 json 的代码，相当于代码生成器，cool! 要一起使用的库还有 json_annotation 和 build_runner。
+
+由 user.dart 生成 user.g.dart 的命令：
+
+    $ flutter packages pub run build_runner build
+
+后续学习：
+
+- 路由
+- 状态管理 (redux?)
